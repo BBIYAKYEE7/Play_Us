@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>로딩 페이지</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 390px;
+            height: 100vh;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p id="loading-text"></p>
+    </div>
+
+    <script>
+        // JavaScript로 2초 뒤에 "PLAY_US."를 표시
+        setTimeout(function () {
+            var loadingText = document.getElementById("loading-text");
+            loadingText.textContent = "PLAY_US.";
+            
+            // 2초 후 다른 웹 페이지로 이동
+            setTimeout(function () {
+                window.location.href = "http://127.0.0.1:5500/PLAY_US_1.html"; // 이동하고자 하는 사이트 URL로 변경
+            }, 3000);
+        }, 3000);
+    </script>
+</body>
+</html>
