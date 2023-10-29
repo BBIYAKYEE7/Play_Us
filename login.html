@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Product</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
         body {
             margin: 0;
             padding: 0;
@@ -23,32 +22,26 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-family: 'League Spartan', sans-serif;
-            font-weight: bold;
             text-align: center;
             padding: 10px;
         }
 
         .header-text {
-            position: absolute;
+            position: relative;
             font-size: 40px;
             font-weight: bold;
-            height: 150px;
+            top: 60px;
         }
 
         .sub-text {
-            position: absolute;
+            position: relative;
             font-size: 13px;
             font-weight: bold;
-            margin-right: 30px;
-            height: 160px;
+            top: -50px;
+            margin-left: -30px;
         }
 
         .form-container {
-            position: absolute;
-            top: 360px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -88,16 +81,19 @@
         }
 
         .sign-up-button {
-            width: 100%;
+            width: 312px;
             height: 30px;
-            margin: 15px 0px;
+            margin: 15px 0;
             padding: 18px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
             background-color: #333333;
             color: #fff;
-            line-height: 3px;
+            text-align: center;
             cursor: pointer;
+            line-height: 3px;
+            margin-left: 10px;
+        
         }
 
         .sign-up-button:hover {
@@ -122,8 +118,8 @@
 </head>
 <body>
     <div class="content">
-        <p class="content, sub-text">색다르게 더욱 재미있게</p>
-        <p class="content, header-text">PLAY_US.</p>
+        <p class="header-text">PLAY_US.</p>
+        <p class="sub-text">색다르게 더욱 재미있게</p>
 
         <div class="form-container">
             <div class="form-group">
@@ -135,7 +131,7 @@
                 <label for="password" class="form-label">비밀번호</label>
             </div>
             <button class="sign-up-button" onclick="redirectToURL()">로그인하기</button>
-            <div class="text-below-button">NO ID?<a href="https://play-us.netlify.app/main.html">PLAY WITH US!</a></div>
+            <div class="text-below-button">NO ID? <a href="http://127.0.0.1:5500/REGISTER.html">PLAY WITH US!</a></div>
         </div>
     </div>
 
@@ -143,7 +139,7 @@
         function redirectToURL() {
             const username = document.getElementById("username").value;
             // 아이디 정보를 URL로 전달
-            window.location.href = "https://play-us.netlify.app/main.html?username=" + username;
+            window.location.href = "http://127.0.0.1:5500/PLAY_US.2.html?username=" + username;
         }
     </script>
 </body>

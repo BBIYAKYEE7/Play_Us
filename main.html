@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Product</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
         body {
             margin: 0;
             padding: 0;
@@ -17,84 +17,324 @@
             min-height: 100vh;
         }
 
-        .content {
-            width: 100%;
-            max-width: 390px;
-            height: 100vh;
-            background-color: #ffffff;
-            /*border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
-            display: flex;
-            flex-direction: column;
-            font-family: 'League Spartan', sans-serif;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
         .PLAY_US {
-            position: absolute;
-            top: 20px;
-            left: 20px;
+            position: relative;
             font-size: 35px;
             color: #000000;
             margin-bottom: 10px;
-            font-family: 'League Spartan', sans-serif;
             font-weight: bold;
-            z-index: 1;
+            top: -80px;
+            left: -60px;
+            margin-top: 100px;
         }
 
         .additional_text {
-            position: absolute;
-            font-size: 14px;
+            position: relative;
+            font-size: 15px;
             font-weight: bold;
-            top: 90px;
-            left: 20px; 
+            text-align: center;
+            top: -90px;
+            left: -60px;
+            margin-top: -47px;
+            margin-left: 92px;
         }
 
-        .boxes {
+        .additional_text_1 {
+            position: relative;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            top: -89px;
+            left: -60px;
+            margin-left: 14px;
+        }
+
+        .box-container {
+            position: relative;
             display: flex;
             justify-content: space-between;
-            width: 100%;
-            max-width: 390px;
-            margin-top: 20px;
+            top: -140px;
+            width: 350px;
+            left: -60px;
+            margin-left: 200px;
         }
 
         .box {
-            width: 400px;
-            height: 108px; 
-            background-color: #ccc;
-            margin: -180px 5px 0; 
-            z-index: 5;
+            width: 47%;
+            height: 98px;
+            background-color: #e0e0e0;
+            border: 1px solid #000;
         }
 
-        h1 {
-            position: absolute;
-            top: 171px;
+        .additional_text_2 {
+            position: relative;
             font-size: 14px;
-            margin-left: 6px;
+            font-weight: bold;
+            text-align: center;
+            top: 25px;
+            left: -60px;
+            margin-left: -15px;
+        }
+
+        .box-container-2 {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            top: -80px;
+            left: -60px;
+            width: 350px;
+            margin-left: 200px;
+        }
+
+        .box-2 {
+            width: 47%;
+            height: 98px;
+            background-color: #e0e0e0;
+            border: 1px solid #000;
+        }
+
+        .additional_text_3 {
+            font-size: 14px;
+            font-weight: bold;
+            position: relative;
+            top: -60px;
+            left: -60px;
+            margin-left: 130px;
+        }
+
+        .box-container-3 {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            top: -64px;
+            left: -60px;
+            width: 350px;
+            margin-left: 200px;
+        }
+
+        .box-3 {
+            width: 47%;
+            height: 98px;
+            background-color: #e0e0e0;
+            border: 1px solid #000;
+        }
+
+        .additional_text_4 {
+            font-size: 14px;
+            font-weight: bold;
+            position: relative;
+            top: -48px;
+            left: -60px;
+            margin-left: 70px;
+        }
+
+        .box-container-4 {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            top: -52px;
+            left: -60px;
+            width: 750px;
+            margin-left: 600px;
+        }
+
+        .box-4 {
+            width: 47%;
+            height: 140px;
+            background-color: #e0e0e0;
+            border: 1px solid #000;
+        }
+
+        .play_us_button {
+            position: relative;
+            top: -130px;
+            left: 190px;
+        }
+
+        .play_us_button img:hover {
+            transform: scale(1.1);
+            /* 호버 시 이미지를 확대(1.1배) */
+        }
+
+
+        .left_button {
+            position: relative;
+            top: -703px;
+            left: -60px;
+            margin-left: 480px;
+        }
+
+        .right_button {
+            position: relative;
+            top: -724.5px;
+            left: -60px;
+            margin-left: 530px;
+        }
+
+        .left_button_1 {
+            position: relative;
+            top: -585px;
+            left: -60px;
+            margin-left: 480px;
+
+        }
+
+        .right_button_1 {
+            position: relative;
+            top: -606.5px;
+            left: -60px;
+            margin-left: 530px;
+
+        }
+
+
+        .left_button_2 {
+            position: relative;
+            top: -467px;
+            left: -60px;
+            margin-left: 480px;
+
+        }
+
+        .right_button_2 {
+            position: relative;
+            top: -489px;
+            left: -60px;
+            margin-left: 530px;
+
+        }
+
+        .left_button img:hover {
+            transform: scale(1.1);
+            /* 호버 시 이미지를 확대(1.1배) */
+        }
+
+        .right_button img:hover {
+            transform: scale(1.1);
+            /* 호버 시 이미지를 확대(1.1배) */
+        }
+
+        .left_button_1 img:hover {
+            transform: scale(1.1);
+            /* 호버 시 이미지를 확대(1.1배) */
+        }
+
+        .right_button_1 img:hover {
+            transform: scale(1.1);
+            /* 호버 시 이미지를 확대(1.1배) */
+        }
+
+
+        .left_button_2 img:hover {
+            transform: scale(1.1);
+            /* 호버 시 이미지를 확대(1.1배) */
+        }
+
+        .right_button_2 img:hover {
+            transform: scale(1.1);
+            /* 호버 시 이미지를 확대(1.1배) */
         }
     </style>
 </head>
+
 <body>
-    <div class="content">
-        <p class="PLAY_US">PLAY_US.</p>
-        <p class="additional_text" id="greeting">username 님 오늘도 준비되셨나요?</p>
-        <div class="boxes">
-            <h1>최근 인기있는 놀거리에요</h1>
-            <div class="box"></div>
-            <div class="box"></div>
-        </div>
+    <p class="PLAY_US">PLAY_US.</p>
+    <div class="play_us_button" onclick="buttonClicked()">
+        <img src="botton.png" alt="Play Us Button" style="width: 50px; height: 50px;">
+    </div>
+    <p class="additional_text" id="greeting">username 님 오늘도 준비되셨나요?</p>
+    <p class="additional_text_1">최근 인기있는 놀거리에요</p>
+
+
+    <p class="additional_text_2">주변에 이런게 있어요</p>
+
+    <div class="box-container">
+        <div class="box"></div>
+        <div class="box"></div>
     </div>
 
+    <div class="box-container-2">
+        <div class="box-2"></div>
+        <div class="box-2"></div>
+    </div>
+
+    <p class="additional_text_3" id="similarUsersText">username님과 비슷한 분들이 찾는 곳이에요</p>
+
+    <div class="box-container-3">
+        <div class="box-3"></div>
+        <div class="box-3"></div>
+    </div>
+
+    <p class="additional_text_4" id="newPlaceText">username님이 최근에 간 곳이에요</p>
+
+    <div class="box-container-4">
+        <div class="box-4"></div>
+    </div>
+
+
+    <div class="left_button" onclick="buttonClicked()">
+        <img src="left.png" alt="left Button" style="width: 15px; height: 15px;">
+    </div>
+
+    <div class="right_button" onclick="buttonClicked()">
+        <img src="right.png" alt="right Button" style="width: 15px; height: 15px;">
+    </div>
+
+
+    <div class="left_button_1" onclick="buttonClicked()">
+        <img src="left.png" alt="left Button" style="width: 15px; height: 15px;">
+    </div>
+
+    <div class="right_button_1" onclick="buttonClicked()">
+        <img src="right.png" alt="right Button" style="width: 15px; height: 15px;">
+    </div>
+
+    <div class="left_button_2" onclick="buttonClicked()">
+        <img src="left.png" alt="left Button" style="width: 15px; height: 15px;">
+    </div>
+
+    <div class="right_button_2" onclick="buttonClicked()">
+        <img src="right.png" alt="right Button" style="width: 15px; height: 15px;">
+    </div>
+
+
     <script>
-        
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
-        if (username) {
+        if (username) {4
             const greeting = document.getElementById('greeting');
             greeting.textContent = `${username} 님 오늘도 준비되셨나요?`;
+
+            // Update the "similarUsersText" element with the username
+            const similarUsersText = document.getElementById('similarUsersText');
+            similarUsersText.textContent = `${username}님과 비슷한 분들이 찾는 곳이에요`;
         }
+
+        const boxContainer = document.querySelector('.box-container');
+        const boxes = document.querySelectorAll('.box');
+        let currentIndex = 0;
+    
+        function slide(direction) {
+            currentIndex = (currentIndex + direction + boxes.length) % boxes.length;
+            boxContainer.style.transform = `translateX(-${currentIndex * 50}%)`;
+        }
+    
+        function buttonClicked(direction) {
+            // 버튼 클릭에 따라 슬라이드 함수 호출
+            slide(direction);
+        }
+    
+        const leftButton = document.querySelector('.left_button');
+        const rightButton = document.querySelector('.right_button');
+    
+        leftButton.addEventListener('click', () => {
+            buttonClicked(-1); // -1은 왼쪽으로 슬라이드
+        });
+    
+        rightButton.addEventListener('click', () => {
+            buttonClicked(1); // 1은 오른쪽으로 슬라이드
+        });
     </script>
 </body>
+
 </html>
