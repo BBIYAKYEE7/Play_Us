@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Product</title>
     <style>
-                body {
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
+        body {
             margin: 0;
             padding: 0;
             display: flex;
@@ -30,6 +31,7 @@
             height: 100%;
             box-sizing: border-box;
             padding-top: 20%;
+            font-family: 'League Spartan', sans-serif;
         }
 
         .header-text {
@@ -128,7 +130,7 @@
 <body>
     <div class="content">
         <p class="sub-text">색다르게 더욱 재미있게</p>
-        <p class="header-text">PLAY_US.</p>
+        <p class="header-text">Play_Us.</p>
 
         <div class="form-container">
             <div class="form-group">
@@ -178,7 +180,7 @@
 
         function redirectToURL() {
             const username = document.getElementById("username").value;
-            window.location.href = "http://127.0.0.1:5500/PLAY_US.2.html?username=" + username;
+            window.location.href = "https://play-us.netlify.app/login.html?username=" + username;
         }
     </script>
 </body>

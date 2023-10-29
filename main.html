@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Product</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
         body {
-            margin: 0;
-            padding: 0;
+            width: 100%; /* 전체 화면 너비로 설정 */
+            margin: 0; /* body의 기본 여백 제거 */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background-color: #ffffff;
-            min-height: 100vh;
+            overflow-x: hidden; 
         }
+
 
         .PLAY_US {
             position: relative;
@@ -26,6 +28,8 @@
             top: -80px;
             left: -60px;
             margin-top: 100px;
+            margin-left: -80px;
+            font-family: 'League Spartan', sans-serif;
         }
 
         .additional_text {
@@ -35,8 +39,9 @@
             text-align: center;
             top: -90px;
             left: -60px;
-            margin-top: -47px;
-            margin-left: 92px;
+            margin-top: -15px;
+            margin-left: -5.8px;
+            font-family: 'League Spartan', sans-serif;
         }
 
         .additional_text_1 {
@@ -46,7 +51,8 @@
             text-align: center;
             top: -89px;
             left: -60px;
-            margin-left: 14px;
+            margin-left: -70px;
+            font-family: 'League Spartan', sans-serif;
         }
 
         .box-container {
@@ -56,7 +62,7 @@
             top: -140px;
             width: 350px;
             left: -60px;
-            margin-left: 200px;
+            margin-left: 119px;
         }
 
         .box {
@@ -73,7 +79,7 @@
             text-align: center;
             top: 25px;
             left: -60px;
-            margin-left: -15px;
+            margin-left: -94px;
         }
 
         .box-container-2 {
@@ -83,7 +89,7 @@
             top: -80px;
             left: -60px;
             width: 350px;
-            margin-left: 200px;
+            margin-left: 119px;
         }
 
         .box-2 {
@@ -99,7 +105,7 @@
             position: relative;
             top: -60px;
             left: -60px;
-            margin-left: 130px;
+            margin-left: 47px;
         }
 
         .box-container-3 {
@@ -109,7 +115,7 @@
             top: -64px;
             left: -60px;
             width: 350px;
-            margin-left: 200px;
+            margin-left: 119px;
         }
 
         .box-3 {
@@ -125,7 +131,7 @@
             position: relative;
             top: -48px;
             left: -60px;
-            margin-left: 70px;
+            margin-left: -14px;
         }
 
         .box-container-4 {
@@ -308,32 +314,17 @@
             // Update the "similarUsersText" element with the username
             const similarUsersText = document.getElementById('similarUsersText');
             similarUsersText.textContent = `${username}님과 비슷한 분들이 찾는 곳이에요`;
+
+            // Add a new text element
+            const newPlaceText = document.getElementById('newPlaceText');
+            newPlaceText.textContent = `${username}님이 최근에 간 곳이에요`;
         }
 
-        const boxContainer = document.querySelector('.box-container');
-        const boxes = document.querySelectorAll('.box');
-        let currentIndex = 0;
-    
-        function slide(direction) {
-            currentIndex = (currentIndex + direction + boxes.length) % boxes.length;
-            boxContainer.style.transform = `translateX(-${currentIndex * 50}%)`;
+        function buttonClicked() {
+
         }
-    
-        function buttonClicked(direction) {
-            // 버튼 클릭에 따라 슬라이드 함수 호출
-            slide(direction);
-        }
-    
-        const leftButton = document.querySelector('.left_button');
-        const rightButton = document.querySelector('.right_button');
-    
-        leftButton.addEventListener('click', () => {
-            buttonClicked(-1); // -1은 왼쪽으로 슬라이드
-        });
-    
-        rightButton.addEventListener('click', () => {
-            buttonClicked(1); // 1은 오른쪽으로 슬라이드
-        });
+
+      
     </script>
 </body>
 

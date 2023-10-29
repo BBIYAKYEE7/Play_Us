@@ -26,14 +26,4 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
-    override fun onBackPressed() {
-
-        val myWebView: WebView = findViewById(R.id.webView)
-        if(myWebView.canGoBack()){
-            myWebView.goBack()
-        }else{
-            super.onBackPressed()
-        }
-    }
 }
