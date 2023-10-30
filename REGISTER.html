@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Product</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
         body {
             margin: 0;
             padding: 0;
@@ -16,6 +15,7 @@
             background-color: #ffffff;
             height: 100vh;
         }
+        
 
         .content {
             width: 100%;
@@ -23,35 +23,33 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             font-size: 24px;
             font-weight: bold;
             text-align: center;
             padding: 10px;
-            height: 100%;
-            box-sizing: border-box;
-            padding-top: 20%;
-            font-family: 'League Spartan', sans-serif;
         }
 
         .header-text {
             font-size: 40px;
             font-weight: bold;
-            height: 150px;
+            margin-top: 15px; /* 조정할 수 있는 여백 */
         }
-
+        
         .sub-text {
             font-size: 13px;
             font-weight: bold;
-            margin-right: 30px;
-            height: 160px;
+            position: relative; /* position을 추가 */
+            top: 40px; /* 원하는 여백으로 조정 */
+            margin-left: -30px;
         }
+        
 
         .form-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 2em;
+            justify-content: center;
         }
 
         .form-group {
@@ -79,6 +77,12 @@
             padding: 0 5px;
         }
 
+        .password-policy-text {
+            font-size: 14px;
+            color: red;
+            display: none;
+        }
+
         .form-input:focus + .form-label,
         .form-input:valid + .form-label {
             transform: translateY(-20px);
@@ -88,7 +92,7 @@
         }
 
         .sign-up-button {
-            width: 100%;
+            width: 312px;
             height: 30px;
             margin: 15px 0px;
             padding: 18px 0;
@@ -98,6 +102,7 @@
             color: #fff;
             line-height: 3px;
             cursor: pointer;
+            margin-left: 10px;
         }
 
         .sign-up-button:hover {
@@ -125,6 +130,12 @@
         .password-no-match-message {
             color: red;
         }
+
+        .password-policy-message-green {
+            color: green;
+            display: none;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -134,37 +145,47 @@
 
         <div class="form-container">
             <div class="form-group">
-                <input type="text" class="form-input" id="username" required>
-                <label for="username" class="form-label">이름</label>
+                <input type="text" class="form-input" id="username1" required oninput="checkFormCompletion()">
+                <label for="username1" class="form-label">이름</label>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-input" id="username" required>
-                <label for="username" class="form-label">아이디</label>
+                <input type="text" class="form-input" id="username2" required oninput="checkFormCompletion()">
+                <label for="username2" class="form-label">아이디</label>
             </div>
 
             <div class="form-group">
-                <input type="password" class="form-input" id="password" required>
+                <input type="text" class="form-input" id="phone" required oninput="formatPhoneNumber(this); checkFormCompletion()">
+                <label for="phone" class="form-label">전화번호</label>
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-input" id="password" required oninput="showPasswordPolicyMessage(this); checkFormCompletion()">
                 <label for="password" class="form-label">비밀번호</label>
+                <span class="password-policy-text" id="password_policy_text">비밀번호 규칙을 따라주세요. 영문, 숫자, 특수문자 중 2종류 이상을 조합하여 최소 10자리 이상 또는 3종류 이상을 조합하여 최소 8자리 이상의 길이로 구성</span>
+                <span class="password-policy-message-green" id="password_policy_message_green">비밀번호 형식이 일치합니다.</span>
             </div>
 
             <div class="form-group">
-                <input type="password" class="form-input" id="confirm_password" required oninput="showMatchMessage(this)">
+                <input type="password" class="form-input" id="confirm_password" required oninput="showMatchMessage(this); checkFormCompletion()">
                 <label for="confirm_password" class="form-label">비밀번호 재확인</label>
-                <span class="password-match-message" id="password_match_message">비밀번호가 일치합니다.</span>
+                <span class="password-match-message" id="password_match_message">멋진 비밀번호에요!.</span>
                 <span class="password-no-match-message" id="password_no_match_message">비밀번호가 일치하지 않습니다.</span>
             </div>
 
-            <button class="sign-up-button" onclick="redirectToURL()">회원가입하기</button>
+            <button class="sign-up-button" id="sign-up-button" onclick="redirectToURL()" disabled>Let's Play_Us!</button>
         </div>
     </div>
 
     <script>
+        let passwordFormatValid = false;
+
         function showMatchMessage(inputField) {
             const password = document.getElementById("password").value;
             const confirm_password = inputField.value;
             const passwordMatchMessage = document.getElementById("password_match_message");
             const passwordNoMatchMessage = document.getElementById("password_no_match_message");
+            const passwordPolicyMessageGreen = document.getElementById("password_policy_message_green");
 
             if (confirm_password === '') {
                 passwordMatchMessage.style.display = 'none';
@@ -172,15 +193,86 @@
             } else if (password === confirm_password) {
                 passwordMatchMessage.style.display = 'block';
                 passwordNoMatchMessage.style.display = 'none';
+                passwordPolicyMessageGreen.style.display = 'block';
             } else {
                 passwordMatchMessage.style.display = 'none';
                 passwordNoMatchMessage.style.display = 'block';
+                passwordPolicyMessageGreen.style.display = 'none';
             }
         }
 
+        function showPasswordPolicyMessage(inputField) {
+            const password = inputField.value;
+            const passwordPolicyText = document.getElementById("password_policy_text");
+            const passwordPolicyMessageGreen = document.getElementById("password_policy_message_green");
+
+            const policyRegex1 = /[0-9]/;
+            const policyRegex2 = /[a-zA-Z]/;
+            const policyRegex3 = /[!@#\$%^&*]/;
+
+            const isPolicyMet = (
+                (policyRegex1.test(password) + policyRegex2.test(password) + policyRegex3.test(password)) >= 2
+                && password.length >= 8
+            );
+
+            if (!isPolicyMet) {
+                passwordPolicyText.style.color = 'red';
+                passwordPolicyText.style.display = 'block';
+                passwordPolicyMessageGreen.style.display = 'none';
+                passwordFormatValid = false;
+            } else {
+                passwordPolicyText.style.display = 'none';
+                if (!passwordFormatValid) {
+                    passwordPolicyMessageGreen.style.display = 'block';
+                    passwordFormatValid = true;
+                }
+            }
+        }
+
+        function checkFormCompletion() {
+            const username1 = document.getElementById("username1").value;
+            const username2 = document.getElementById("username2").value;
+            const password = document.getElementById("password").value;
+            const confirm_password = document.getElementById("confirm_password").value;
+            const signUpButton = document.getElementById("sign-up-button");
+        
+            if (username1 !== "" && username2 !== "" && password !== "" && confirm_password !== "" && passwordFormatValid) {
+                signUpButton.disabled = false;
+            } else {
+                signUpButton.disabled = true;
+            }
+        }
         function redirectToURL() {
-            const username = document.getElementById("username").value;
-            window.location.href = "https://play-us.netlify.app/login.html?username=" + username;
+            const username1 = document.getElementById("username1").value;
+            const username2 = document.getElementById("username2").value;
+            if (username1 === "" || username2 === "") {
+                alert("이름과 아이디를 입력하세요.");
+                return;
+            }
+            if (!passwordFormatValid) {
+                alert("비밀번호 형식을 확인해주세요.");
+                return;
+            }
+            window.location.href = "https://play-us.netlify.app/login.html";
+        }
+
+        function formatPhoneNumber(inputField) {
+            let phoneNumber = inputField.value;
+            
+            // Remove any non-numeric characters
+            phoneNumber = phoneNumber.replace(/\D/g, '');
+            
+            // Restrict further input after a total of 11 digits (010과 7자리 숫자)
+            if (phoneNumber.length >= 11) {
+                phoneNumber = phoneNumber.substring(0, 11);
+            }
+            
+            // Add the "010" prefix
+            if (phoneNumber.length >= 3) {
+                phoneNumber = '010' + phoneNumber.substring(3);
+            }
+            
+            inputField.value = phoneNumber;
         }
     </script>
 </body>

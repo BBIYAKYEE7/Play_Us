@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,249 +7,214 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
         body {
-            width: 100%; /* 전체 화면 너비로 설정 */
-            margin: 0; /* body의 기본 여백 제거 */
+            margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background-color: #ffffff;
-            overflow-x: hidden; 
+            overflow-x: hidden;
         }
 
 
         .PLAY_US {
-            position: relative;
-            font-size: 35px;
+            font-size: 6vh;
             color: #000000;
-            margin-bottom: 10px;
             font-weight: bold;
-            top: -80px;
-            left: -60px;
-            margin-top: 100px;
-            margin-left: -80px;
             font-family: 'League Spartan', sans-serif;
+            text-align: center;
+            margin-top: 5vh;
+            margin-left: -43vw;
         }
 
+
+        .play_us_button {
+            position: absolute;
+            margin-top: 4vh;
+            margin-left: 75vw;
+            top: 1.6vh;
+        }
+      
         .additional_text {
-            position: relative;
-            font-size: 15px;
+            position: absolute;
+            font-size: 2.2vh;
             font-weight: bold;
             text-align: center;
-            top: -90px;
-            left: -60px;
-            margin-top: -15px;
-            margin-left: -5.8px;
             font-family: 'League Spartan', sans-serif;
+            margin: 1vh 0;
+            margin-top: 7vh;
+            margin-left: -17vw;
         }
-
+      
         .additional_text_1 {
-            position: relative;
-            font-size: 14px;
+            position: absolute;
+            font-size: 2.4vh;
             font-weight: bold;
             text-align: center;
-            top: -89px;
-            left: -60px;
-            margin-left: -70px;
             font-family: 'League Spartan', sans-serif;
-        }
-
-        .box-container {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            top: -140px;
-            width: 350px;
-            left: -60px;
-            margin-left: 119px;
-        }
-
-        .box {
-            width: 47%;
-            height: 98px;
-            background-color: #e0e0e0;
-            border: 1px solid #000;
+            margin-top: 25vh;
+            margin-left: -30vw;
         }
 
         .additional_text_2 {
-            position: relative;
-            font-size: 14px;
+            position: absolute;
+            top: 8vh;
+            font-size: 2.4vh;
             font-weight: bold;
             text-align: center;
-            top: 25px;
-            left: -60px;
-            margin-left: -94px;
+            font-family: 'League Spartan', sans-serif;
+            margin: 1vh 0;
+            margin-top: 29vh;
+            margin-left: -41vw;
         }
-
-        .box-container-2 {
-            position: relative;
+      
+        .box-container {
+            position: absolute;
             display: flex;
             justify-content: space-between;
-            top: -80px;
-            left: -60px;
-            width: 350px;
-            margin-left: 119px;
+            width: 90vw;
+            margin-top: 39vh;
         }
-
-        .box-2 {
-            width: 47%;
-            height: 98px;
+        
+        .box {
+            flex: 0 0 calc(48% - 1vw);
+            margin: 0.5vh;
+            height: 11vh;
             background-color: #e0e0e0;
             border: 1px solid #000;
         }
+       
+        .box-container-2 {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            width: 90vw;
+            margin-top: 78vh;
+        }
+     
+        .box-2 {
+            flex: 0 0 calc(48% - 1vw);
+            margin: 0.5vh;
+            height: 11vh;
+            background-color: #e0e0e0;
+            border: 1px solid #000;
+        }
+        
 
         .additional_text_3 {
-            font-size: 14px;
+            position: absolute;
+            font-size: 2.4vh;
             font-weight: bold;
-            position: relative;
-            top: -60px;
-            left: -60px;
-            margin-left: 47px;
+            text-align: center;
+            font-family: 'League Spartan', sans-serif;
+            margin: 1vh 0;
+            margin-left: -21vw;
+            margin-top: 100vh;
         }
 
         .box-container-3 {
-            position: relative;
+            position: absolute;
             display: flex;
             justify-content: space-between;
-            top: -64px;
-            left: -60px;
-            width: 350px;
-            margin-left: 119px;
+            width: 90vw;
+            margin-top: 116vh;
         }
 
         .box-3 {
-            width: 47%;
-            height: 98px;
+            flex: 0 0 calc(48% - 1vw);
+            margin: 0.5vh;
+            height: 11vh;
             background-color: #e0e0e0;
             border: 1px solid #000;
         }
 
         .additional_text_4 {
-            font-size: 14px;
+            position: absolute;
+            font-size: 2.4vh;
             font-weight: bold;
-            position: relative;
-            top: -48px;
-            left: -60px;
-            margin-left: -14px;
+            font-family: 'League Spartan', sans-serif;
+            margin: 1vh 0;
+            margin-top: 137vh;
+            margin-left: -11vw;
         }
-
         .box-container-4 {
-            position: relative;
+            position: absolute;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
-            top: -52px;
-            left: -60px;
-            width: 750px;
-            margin-left: 600px;
+            width: 90vw;
+            margin-top: 160vh;
         }
-
         .box-4 {
-            width: 47%;
-            height: 140px;
+            flex: 1;
+            min-width: 48%;
+            margin: 0.5vh;
+            height: 18vh;
             background-color: #e0e0e0;
             border: 1px solid #000;
         }
 
-        .play_us_button {
-            position: relative;
-            top: -130px;
-            left: 190px;
+        .left_button,
+        .right_button,
+        .left_button_1,
+        .right_button_1,
+        .left_button_2,
+        .right_button_2 {
+            margin-top: 1vh; /* 상대적인 위치로 변경 */
         }
 
-        .play_us_button img:hover {
+        .left_button img:hover,
+        .right_button img:hover,
+        .left_button_1 img:hover,
+        .right_button_1 img:hover,
+        .left_button_2 img:hover,
+        .right_button_2 img:hover {
             transform: scale(1.1);
-            /* 호버 시 이미지를 확대(1.1배) */
         }
-
-
+      
         .left_button {
-            position: relative;
-            top: -703px;
-            left: -60px;
-            margin-left: 480px;
+            position: absolute;
+            margin-left: 70vw;
+            margin-top: 22vh;
         }
-
         .right_button {
-            position: relative;
-            top: -724.5px;
-            left: -60px;
-            margin-left: 530px;
+            position: absolute;
+            margin-left: 78vw;
+            margin-top: 22vh;
         }
-
         .left_button_1 {
-            position: relative;
-            top: -585px;
-            left: -60px;
-            margin-left: 480px;
-
+            position: absolute;
+            margin-left: 70vw;
+            margin-top: 59vh;
         }
-
         .right_button_1 {
-            position: relative;
-            top: -606.5px;
-            left: -60px;
-            margin-left: 530px;
-
+            position: absolute;
+            margin-top: 59vh;
+            margin-left: 78vw;
         }
-
 
         .left_button_2 {
-            position: relative;
-            top: -467px;
-            left: -60px;
-            margin-left: 480px;
-
+            position: absolute;
+            margin-top: 98vh;
+            margin-left: 70vw;
         }
 
         .right_button_2 {
-            position: relative;
-            top: -489px;
-            left: -60px;
-            margin-left: 530px;
-
+            position: absolute;
+            margin-top: 98vh;
+            margin-left: 78vw;
         }
-
-        .left_button img:hover {
-            transform: scale(1.1);
-            /* 호버 시 이미지를 확대(1.1배) */
-        }
-
-        .right_button img:hover {
-            transform: scale(1.1);
-            /* 호버 시 이미지를 확대(1.1배) */
-        }
-
-        .left_button_1 img:hover {
-            transform: scale(1.1);
-            /* 호버 시 이미지를 확대(1.1배) */
-        }
-
-        .right_button_1 img:hover {
-            transform: scale(1.1);
-            /* 호버 시 이미지를 확대(1.1배) */
-        }
-
-
-        .left_button_2 img:hover {
-            transform: scale(1.1);
-            /* 호버 시 이미지를 확대(1.1배) */
-        }
-
-        .right_button_2 img:hover {
-            transform: scale(1.1);
-            /* 호버 시 이미지를 확대(1.1배) */
-        }
+        
     </style>
 </head>
 
 <body>
-    <p class="PLAY_US">PLAY_US.</p>
+    <p class="PLAY_US">Play_Us.</p>
     <div class="play_us_button" onclick="buttonClicked()">
-        <img src="botton.png" alt="Play Us Button" style="width: 50px; height: 50px;">
+        <img src="menu.png" alt="Play Us Button" style="width: 10vw; height: 10vw;"> <!-- 상대적인 크기로 변경 -->
     </div>
     <p class="additional_text" id="greeting">username 님 오늘도 준비되셨나요?</p>
     <p class="additional_text_1">최근 인기있는 놀거리에요</p>
-
 
     <p class="additional_text_2">주변에 이런게 있어요</p>
 
@@ -264,7 +228,7 @@
         <div class="box-2"></div>
     </div>
 
-    <p class="additional_text_3" id="similarUsersText">username님과 비슷한 분들이 찾는 곳이에요</p>
+    <p class="additional_text_3" id="similarUsersText">오늘 날씨에는 이런게 어때요?</p>
 
     <div class="box-container-3">
         <div class="box-3"></div>
@@ -277,55 +241,47 @@
         <div class="box-4"></div>
     </div>
 
-
     <div class="left_button" onclick="buttonClicked()">
-        <img src="left.png" alt="left Button" style="width: 15px; height: 15px;">
+        <img src="left.png" alt="left Button" style="width: 2.5vw; height: 2.5vw;"> <!-- 상대적인 크기로 변경 -->
     </div>
 
     <div class="right_button" onclick="buttonClicked()">
-        <img src="right.png" alt="right Button" style="width: 15px; height: 15px;">
+        <img src="right.png" alt="right Button" style="width: 2.5vw; height: 2.5vw;"> <!-- 상대적인 크기로 변경 -->
     </div>
 
-
     <div class="left_button_1" onclick="buttonClicked()">
-        <img src="left.png" alt="left Button" style="width: 15px; height: 15px;">
+        <img src="left.png" alt="left Button" style="width: 2.5vw; height: 2.5vw;"> <!-- 상대적인 크기로 변경 -->
     </div>
 
     <div class="right_button_1" onclick="buttonClicked()">
-        <img src="right.png" alt="right Button" style="width: 15px; height: 15px;">
+        <img src="right.png" alt="right Button" style="width: 2.5vw; height: 2.5vw;"> <!-- 상대적인 크기로 변경 -->
     </div>
 
     <div class="left_button_2" onclick="buttonClicked()">
-        <img src="left.png" alt="left Button" style="width: 15px; height: 15px;">
+        <img src="left.png" alt="left Button" style="width: 2.5vw; height: 2.5vw;"> <!-- 상대적인 크기로 변경 -->
     </div>
 
     <div class="right_button_2" onclick="buttonClicked()">
-        <img src="right.png" alt="right Button" style="width: 15px; height: 15px;">
+        <img src="right.png" alt="right Button" style="width: 2.5vw; height: 2.5vw;"> <!-- 상대적인 크기로 변경 -->
     </div>
-
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
-        if (username) {4
+        if (username) {
             const greeting = document.getElementById('greeting');
             greeting.textContent = `${username} 님 오늘도 준비되셨나요?`;
 
-            // Update the "similarUsersText" element with the username
             const similarUsersText = document.getElementById('similarUsersText');
             similarUsersText.textContent = `${username}님과 비슷한 분들이 찾는 곳이에요`;
 
-            // Add a new text element
             const newPlaceText = document.getElementById('newPlaceText');
             newPlaceText.textContent = `${username}님이 최근에 간 곳이에요`;
         }
 
         function buttonClicked() {
-
+            // Your button click logic here
         }
-
-      
     </script>
 </body>
-
 </html>
