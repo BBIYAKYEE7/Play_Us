@@ -6,6 +6,7 @@
     <title>Product</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
+        @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
         body {
             margin: 0;
             padding: 0;
@@ -25,22 +26,24 @@
             align-items: center;
             text-align: center;
             padding: 10px;
-            font-family: 'League Spartan', sans-serif;
         }
 
         .header-text {
             position: absolute;
+            font-family: 'League Spartan', sans-serif;
             font-size: 13vw;
             font-weight: bold;
             top: 22vh;
         }
         .sub-text {
             position: absolute;
+            font-family: 'Pretendard';
+            font-weight: 600;
             font-size: 3vw;
             font-weight: bold;
             top: 26vh;
-            margin-left: -22vw;
-            margin-top: 2vh;
+            margin-left: -20vw;
+            margin-top: 1vh;
         }
         .form-container {
             display: flex;
@@ -64,31 +67,37 @@
         }
 
         .form-label {
+            font-family: 'Pretendard';
+            font-weight: 600;
             position: absolute;
             pointer-events: none;
-            font-size: 4vw;
-            left: 2vw;
-            top: 0.6vh;
+            font-size: 15pt;
+            left: 4vw;
+            top: 2px;
             transition: 0.4s;
             background-color: #ffffff;
             padding: 1vw;
             margin-top: 1vw;
             line-height: 2vh;
+            font-weight: bold;
         }
 
         .form-input:focus + .form-label,
         .form-input:valid + .form-label {
-            transform: translateY(-2vh); /* 상대적인 위치 사용 */
-            font-size: 1.2vw; /* 상대적인 크기 사용 */
+            transform: translateY(-1.5vh);
+            font-size: 3vw;
             background-color: #ffffff;
-            padding: 0.5vw; /* 상대적인 크기 사용 */
+            padding: 0 5px;
         }
 
         .sign-up-button {
-            width: 80vw;
+            font-family: 'Pretendard';
+            font-weight: 600;
+            font-size: 15px;
+            width: 85vw;
             height: 3vh;
             margin: 2vh 0;
-            padding: 2.5vh 0;
+            padding: 6.1vw;
             border: 1px solid #ccc;
             border-radius: 4vw;
             background-color: #333333;
@@ -96,13 +105,13 @@
             text-align: center;
             cursor: pointer;
             line-height: 0.3;
-            margin-left: 1vw;
+            margin-left: -2vw;
         }
-
         .sign-up-button:hover {
             background-color: #000000;
         }
         .text-below-button {
+            font-family: 'League Spartan', sans-serif;
             margin-top: -1vh;
             font-weight: bold;
             font-size: 4vw;
@@ -116,9 +125,38 @@
         a:visited {
             color: #000;
         }
+
+        @keyframes fade-in {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        @keyframes fade-out {
+          0% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
+
+        .fade-in-out {
+          animation: fade-in 1s ease-in forwards;
+          animation-delay: 0s; 
+        }
+
+        .fade-out {
+          animation: fade-out 1s ease-out forwards;
+          animation-delay: 2s; 
+        }
+
     </style>
 </head>
-<body>
+<body class="fade-in-out">
     <div class="content">
         <p class="header-text">Play_Us.</p>
         <p class="sub-text">색다르게 더욱 재미있게</p>
@@ -133,7 +171,7 @@
                 <label for="password" class="form-label">비밀번호</label>
             </div>
             <button class="sign-up-button" onclick="redirectToURL()">로그인하기</button>
-            <div class="text-below-button">NO ID? <a href="https://play-us.netlify.app/REGISTER.html">PLAY WITH US!</a></div>
+            <div class="text-below-button">Not Resistered? <a href="https://play-us.netlify.app/REGISTER.html">Play With Us!</a></div>
         </div>
     </div>
 
