@@ -294,6 +294,12 @@
             transition: transform 0.3s;
         }
 
+        .sidebartext{
+            transform: scale(1.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
         .friend-text:hover {
             transform: scale(1.1);
         }
@@ -727,7 +733,7 @@
 <body>
     <p class="PLAY_US">Play_Us.</p>
     <div class="play_us_button" onclick="toggleSidebar()">
-        <img src="botton.png" alt="Play Us Button">
+        <img src="menu.png" alt="Play Us Button">
     </div>
 
     <div class="profile-circle" onclick="openImageDialog()">
@@ -812,7 +818,7 @@
 
 
     <div id="sidebar" class="sidebar">
-        <p class="additional_text_5" id="sidebartext">Play_Us.</p>
+        <p class="additional_text_5" id="sidebartext"><a href="https://play-us.netlify.app/main.html">Play_Us.</p>
 
         <div class="profile-button">
             <input type="file" id="image-upload" accept="image/*" onchange="updateProfileImage(this)">
@@ -840,10 +846,10 @@
         </div>
 
         <img src="friends.png" alt="친구목록" class="friend-image">
-        <div class="friend-text"><a href="http://127.0.0.1:5500/friends.html">친구목록</a></div>
+        <div class="friend-text"><a href="https://play-us.netlify.app/friends.html">친구목록</a></div>
 
         <img src="table.png" alt="일정 관리하기" class="table-image">
-        <div class="table-text"><a href="">일정 관리하기</a></div> <!--링크 넣어줘야함-->
+        <div class="table-text"><a href="https://play-us.netlify.app/plan.html">일정 관리하기</a></div> <!--링크 넣어줘야함-->
 
         <img src="location.png" alt="주변 놀거리 찾기" class="location-image">
         <div class="location-text"><a href="">주변 놀거리 찾기</a></div> <!--링크 넣어줘야함-->
