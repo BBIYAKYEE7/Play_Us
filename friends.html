@@ -7,7 +7,7 @@
     <title>Product</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
-
+        @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
         body {
             margin: 0;
             display: flex;
@@ -97,7 +97,7 @@
             opacity: 1;
             transition: max-height 0.5s, opacity 0.5s;
             transform: translateY(0);
-
+            font-family: Pretendard;
             display: block;
 
         }
@@ -589,7 +589,7 @@
 
         .box button {
             position: relative;
-            margin-top: 23vw;
+            margin-top: 21vw;
             border-radius: 5px;
             background-color: #333;
             color: #fff;
@@ -603,7 +603,7 @@
             background-color: #333;
             color: #fff;
             font-size: 3.5vw;
-            margin-left: 63vw;
+            margin-left: 60vw;
             margin-top: 2vw;
         }
 
@@ -749,7 +749,6 @@
 
     <div class="box-container">
         <div class="box">
-
             <button onclick="handleBoxButtonClick(1)">약속잡기</button>
         </div>
         <div class="box">
@@ -818,7 +817,7 @@
 
 
     <div id="sidebar" class="sidebar">
-        <p class="additional_text_5" id="sidebartext"><a href="https://play-us.netlify.app/main.html">Play_Us.</p>
+        <p class="additional_text_5" id="sidebartext"><ahref="https://play-us.netlify.app/main.html">Play_Us.</p>
 
         <div class="profile-button">
             <input type="file" id="image-upload" accept="image/*" onchange="updateProfileImage(this)">
