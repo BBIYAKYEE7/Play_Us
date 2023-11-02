@@ -1,6 +1,6 @@
 # Critical_Process_Died 의 Play_Us 소스코드
 
-![](logo.png)
+![](tlogo.png)
 
 2023 경기도연한해커톤에 출전하는 일산대진고학생 2명의 일주일간 밤낮 없이 개발한 코드를 담았습니다!
 
