@@ -390,15 +390,19 @@
             transform: scale(1.1);
         }
 
-     
+
 
         .eventBox {
             display: flex;
-            justify-content: space-between; /* 자식 요소를 좌우에 배치 */
-            align-items: center; /* 자식 요소를 수직 가운데로 정렬 */
-            padding: 10px; /* 여백 설정 */
-            border: 1px solid #ddd; /* 테두리 추가 */
-          }
+            justify-content: space-between;
+            /* 자식 요소를 좌우에 배치 */
+            align-items: center;
+            /* 자식 요소를 수직 가운데로 정렬 */
+            padding: 10px;
+            /* 여백 설정 */
+            border: 1px solid #ddd;
+            /* 테두리 추가 */
+        }
 
         .eventNameBox {
             background-color: #f0f0f0;
@@ -413,13 +417,15 @@
             font-size: 2vh;
             font-weight: bold;
         }
+
         #eventContainer {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px; /* 원하는 위치로 조절 */
+            margin-top: 20px;
+            /* 원하는 위치로 조절 */
         }
-        
+
         #eventCountText {
             font-size: 2.2vh;
             color: #000000;
@@ -429,24 +435,30 @@
             margin-top: -6vh;
             margin-left: -20vw;
         }
-        
+
         #eventList {
-            width: 100%; /* 전체 너비를 사용하도록 설정 */
-            max-width: 600px; /* 원하는 최대 너비로 조절 */
+            width: 100%;
+            /* 전체 너비를 사용하도록 설정 */
+            max-width: 600px;
+            /* 원하는 최대 너비로 조절 */
         }
-        
+
         .eventItem {
             display: flex;
             align-items: center;
-            margin-bottom: 10px; /* 이벤트 항목 간격 조절 */
+            margin-bottom: 10px;
+            /* 이벤트 항목 간격 조절 */
         }
-        
+
         .eventLocationImage {
-            width: 30px; /* 이미지 너비 조절 */
-            height: 30px; /* 이미지 높이 조절 */
-            margin-right: 10px; /* 이미지와 텍스트 사이 간격 조절 */
+            width: 30px;
+            /* 이미지 너비 조절 */
+            height: 30px;
+            /* 이미지 높이 조절 */
+            margin-right: 10px;
+            /* 이미지와 텍스트 사이 간격 조절 */
         }
-        
+
         .eventLocationText {
             font-size: 2vh;
             font-weight: bold;
@@ -472,20 +484,14 @@
             <p id="username-greeting">username님, 반가워요</p>
         </div>
 
-
-
         <div class="additional-image-1">
-            <img src="logout.png" alt="로그아웃" onclick="handleImageClick(1)">
+            <img src="logout.png" alt="로그아웃" onclick="handleImageClick(1)"><a
+                href="https://play-us.netlify.app/login.html"></a>
         </div>
 
 
         <div class="additional-image-2">
             <img src="setting.png" alt="설정" onclick="handleImageClick(2)">
-        </div>
-
-
-        <div class="additional-image-3">
-            <img src="export.png" alt="공유" onclick="handleImageClick(3)">
         </div>
 
         <img src="friends.png" alt="친구목록" class="friend-image">
@@ -495,26 +501,13 @@
         <div class="table-text"><a href="https://play-us.netlify.app/plan.html">일정 관리하기</a></div>
 
         <img src="location.png" alt="주변 놀거리 찾기" class="location-image">
-        <div class="location-text"><a href="https://play-us.netlify.app/nearlocation.html">주변 놀거리 찾기</a></div> 
-
-        <img src="message.png" alt="방문한 매장 의견 남기기" class="message-image">
-        <div class="message-text"><a href="">방문한 매장 읜견 남기기</a></div> <!--링크 넣어줘야함-->
-
-        <img src="weather.png" alt="오늘 날씨 확인하기" class="weather-image">
-        <div class="weather-text"><a href="">오늘 날씨 확인하기</a></div> <!--링크 넣어줘야함-->
-
-        <img src="plan.png" alt="계획짜러 가기" class="plan-image">
-        <div class="plan-text"><a href="">계획짜러 가기</a></div> <!--링크 넣어줘야함-->
-
-        <img src="pay.png" alt="더치페이 계산하기" class="pay-image">
-        <div class="pay-text"><a href="">더치페이 계산하기</a></div> <!--링크 넣어줘야함-->
-
+        <div class="location-text"><a href="https://play-us.netlify.app/nearlocation.html">주변 놀거리 찾기</a></div>
     </div>
     <div id="eventContainer">
         <div id="eventCountText"></div>
         <div id="eventList"></div>
     </div>
-    
+
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
@@ -527,48 +520,48 @@
         document.addEventListener('DOMContentLoaded', function () {
             const eventCountText = document.getElementById('eventCountText');
             const eventList = document.getElementById('eventList');
-        
+
             function addEventBox(eventName, eventLocation, eventDate) {
                 const eventBox = document.createElement('div');
                 eventBox.className = 'eventNameBox';
-        
+
                 const eventNameText = document.createElement('p');
                 eventNameText.textContent = eventName;
                 eventNameText.style.position = 'absolute';
-                eventNameText.style.marginTop = '20px'; 
-                eventNameText.style.marginLeft = '38px'; 
+                eventNameText.style.marginTop = '20px';
+                eventNameText.style.marginLeft = '38px';
                 eventNameText.style.fontSize = '2.4vh';
-        
+
                 const eventLocationText = document.createElement('p');
                 eventLocationText.textContent = `장소: ${eventLocation}`;
                 eventLocationText.style.textAlign = 'right';
                 eventLocationText.style.fontSize = '2.2vh';
                 eventLocationText.style.marginTop = '30px';
-        
+
                 const eventDateText = document.createElement('p');
                 eventDateText.textContent = eventDate.toLocaleDateString('ko-KR');
                 eventDateText.style.marginTop = '-20px';
                 eventDateText.style.position = 'absolute';
                 eventDateText.style.fontSize = '2.4vh';
                 eventDateText.style.marginLeft = '40px';
-        
+
                 eventBox.appendChild(eventNameText);
                 eventBox.appendChild(eventLocationText);
                 eventBox.appendChild(eventDateText);
-        
+
                 eventBox.addEventListener('click', () => {
                     // Redirect to the event details page with event information as URL parameters
                     const eventDetailsURL = `https://play-us.netlify.app/friendspay.html?eventName=${eventName}&eventLocation=${eventLocation}&eventDate=${eventDate}`;
                     window.location.href = eventDetailsURL;
                 });
-        
+
                 eventList.appendChild(eventBox);
             }
-        
+
             const eventName = localStorage.getItem('eventName');
             const eventLocation = localStorage.getItem('eventLocation');
             const eventDate = new Date(localStorage.getItem('eventDate'));
-        
+
             if (eventName) {
                 addEventBox(eventName, eventLocation, eventDate);
                 eventCountText.textContent = `1건의 약속이 있어요.`;

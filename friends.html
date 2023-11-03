@@ -885,10 +885,9 @@
             <p id="username-greeting">username님, 반가워요</p>
         </div>
 
-
-
         <div class="additional-image-1">
-            <img src="logout.png" alt="로그아웃" onclick="handleImageClick(1)">
+            <img src="logout.png" alt="로그아웃" onclick="handleImageClick(1)"><a
+                href="https://play-us.netlify.app/login.html"></a>
         </div>
 
 
@@ -900,13 +899,10 @@
         <div class="friend-text"><a href="https://play-us.netlify.app/friends.html">친구목록</a></div>
 
         <img src="table.png" alt="일정 관리하기" class="table-image">
-        <div class="table-text"><a href="https://play-us.netlify.app/plan.html">일정 관리하기</a></div> <!--링크 넣어줘야함-->
+        <div class="table-text"><a href="https://play-us.netlify.app/plan.html">일정 관리하기</a></div>
 
         <img src="location.png" alt="주변 놀거리 찾기" class="location-image">
-        <div class="location-text"><a href="">주변 놀거리 찾기</a></div> <!--링크 넣어줘야함-->
-
-        <img src="message.png" alt="방문한 매장 의견 남기기" class="message-image">
-        <div class="message-text"><a href="https://play-us.netlify.app/nearlocation.html">방문한 매장 읜견 남기기</a></div>
+        <div class="location-text"><a href="https://play-us.netlify.app/nearlocation.html">주변 놀거리 찾기</a></div>
     </div>
     <p class="additional_text" id="greeting">username님 주변에 누가 있을까요?</p>
 
@@ -1029,32 +1025,32 @@
             locationSetMessage.style.borderRadius = "5px";
             locationSetMessage.style.zIndex = "1000";
             locationSetMessage.style.textAlign = "center";
-        
+
             // 알림 메시지를 body에 추가
             document.body.appendChild(locationSetMessage);
-        
+
             // 2초 후에 알림 메시지 삭제 및 completeEvent 함수 호출
             setTimeout(function () {
                 document.body.removeChild(locationSetMessage);
                 completeEvent();
             }, 1000);
         }
-        
+
         function completeEvent() {
             // 이벤트의 이름과 위치 설정
             var eventName = document.getElementById("eventNameInput").value;
             var eventLocation = document.getElementById("locationNameInput").value;
-        
+
             // 약속 정보를 localStorage에 저장
             localStorage.setItem('eventName', eventName);
             localStorage.setItem('eventLocation', eventLocation);
-        
+
             // 로컬 스토리지에서 현재 약속 개수 가져오기
             var numberOfEvents = parseInt(localStorage.getItem('numberOfEvents')) || 0; // 기본값 0으로 설정
-        
+
             // numberOfEvents를 사용하여 원하는 작업을 수행합니다.
             // 예를 들어, 현재 약속 개수를 얻어오는 것이 목적이라면 이제 numberOfEvents 변수를 사용하면 됩니다.
-        
+
             // 페이지를 이동합니다.
             window.location.href = 'https://play-us.netlify.app/plan.html';
         }
