@@ -49,9 +49,6 @@
             /* 이미지 크기 확대 (1.1배) */
         }
 
-
-
-
         .sidebar {
             position: fixed;
             left: -90%;
@@ -507,17 +504,19 @@
         }
 
         .event-container {
-            background-color: #f0f0f0;
-            border: 2px solid #007bff;
+            width:80%;
+            background-color: #ffffff;
             border-radius: 5px;
             padding: 10px;
             margin: 10px;
             position: absolute;
-            margin-top: 50vh;
+            margin-top: 40vh;
+            box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.25);
         }
 
         #completeEventButton {
-            background-color: #007bff;
+            width: 86%;
+            background-color: #333333;
             color: #fff;
             padding: 6px 100px;
             border: none;
@@ -525,27 +524,28 @@
             cursor: pointer;
             font-weight: bold;
             font-size: 16px;
-            margin-top: 84vh;
+            margin-top: 70vh;
             position: absolute;
+            box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.25);
         }
 
         #completeEventButton:hover {
-            background-color: #0056b3;
+            background-color: #000000;
         }
 
         .custom-alert {
             display: none;
             position: fixed;
-            top: 50%;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
             background: rgb(255, 255, 255);
-            border: 2px solid rgb(51, 51, 51);
             padding: 20px;
             border-radius: 5px;
             z-index: 1000;
             width: 70%;
             text-align: center;
+            box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.25);
         }
 
         
@@ -773,7 +773,7 @@
                     if (button1Text === '네') {
                         // 사용자가 "네"를 선택한 경우의 처리를 여기에 추가
                         // 예시: 정산 페이지로 이동
-                        window.location.href = 'http://127.0.0.1:5500/finalpay.html'; // 이동할 페이지 URL로 변경
+                        window.location.href = 'https://play-us.netlify.app/finalpay.html'; // 이동할 페이지 URL로 변경
                     }
                 });
                 buttonContainer.appendChild(button1);
@@ -789,7 +789,7 @@
                     eventContainer.innerHTML = '<p>약속이 모두 처리되었습니다!</p>';
                     setTimeout(function () {
                         // 일정 시간 후 원하는 페이지로 이동 (예: 3초 후)
-                        window.location.href = 'http://127.0.0.1:5500/friends.html'; // 이동할 페이지 URL로 변경
+                        window.location.href = 'https://play-us.netlify.app/friends.html'; // 이동할 페이지 URL로 변경
                     }, 3000); // 3초 지연
                 });
                 buttonContainer.appendChild(button2);
