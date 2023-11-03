@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <title>Product</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
         body {
             margin: 0;
             padding: 0;
@@ -23,6 +24,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            font-family: 'League Spartan', sans-serif;
             font-size: 24px;
             font-weight: bold;
             text-align: center;
@@ -30,18 +32,18 @@
         }
 
         .header-text {
-            font-size: 40px;
+            font-size: 13vw;
             font-weight: bold;
             margin-top: -300px;
             position: absolute;
         }
         
         .sub-text {
-            font-size: 13px;
+            font-size: 3vw;
             font-weight: bold;
-            margin-left: -9vw;
+            margin-left: -20vw;
             position: absolute;
-            margin-top: -58vh;
+            margin-top: -50vh;
         }
         
         .form-container {
@@ -51,7 +53,7 @@
             justify-content: center;
             position: absolute;
             margin-left: -9px;
-            margin-top: 24vh;
+            margin-top: 10vh;
         }
 
         .form-group {
@@ -83,6 +85,7 @@
             font-size: 14px;
             color: red;
             display: none;
+            margin-top: 10px;
         }
 
         .form-input:focus + .form-label,
@@ -120,30 +123,40 @@
         .password-match-message,
         .password-no-match-message {
             display: none;
-            margin-top: 5px;
+            margin-top: 10px;
             font-weight: bold;
             font-size: 14px;
+            margin-top: 10px;
         }
 
         .password-match-message {
-            color: green;
+            color: #3ac435;
         }
 
         .password-no-match-message {
-            color: red;
+            color: #fa0000;
         }
 
         .password-policy-message-green {
-            color: green;
+            color: #3ac435;
             display: none;
             font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .fixed-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
-    <div class="content">
+    <div class="content fixed-screen">
         <p class="sub-text">색다르게 더욱 재미있게</p>
-        <p class="header-text">PLAY_US.</p>
+        <p class="header-text">Play_Us.</p>
 
         <div class="form-container">
             <div class="form-group">
@@ -164,8 +177,8 @@
             <div class="form-group">
                 <input type="password" class="form-input" id="password" required oninput="showPasswordPolicyMessage(this); checkFormCompletion()">
                 <label for="password" class="form-label">비밀번호</label>
-                <span class="password-policy-text" id="password_policy_text">비밀번호 규칙을 따라주세요. 영문, 숫자, 특수문자 중 2종류 이상을 조합하여 최소 10자리 이상 또는 3종류 이상을 조합하여 최소 8자리 이상의 길이로 구성</span>
-                <span class="password-policy-message-green" id="password_policy_message_green">비밀번호 형식이 일치합니다.</span>
+                <span class="password-policy-text" id="password_policy_text">비밀번호가 너무 쉬워요! 영문, 숫자, 특수문자를 조합하여 최소 10자리 이상으로 구성해주세요!</span>
+                <span class="password-policy-message-green" id="password_policy_message_green">좋아요! 곧 Play_Us에서 만나요!</span>
             </div>
 
             <div class="form-group">
