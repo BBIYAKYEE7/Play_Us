@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript"
-        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=efc24754b9098711d35fa0e986136a1e&libraries=services"></script>
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d9af697ed9fb9bb47471d3b42816357e&libraries=services"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
 
@@ -80,15 +80,15 @@
         }
 
         .map-container {
-            width: 100%;
+            width: 129%;
             /* Full width on mobile */
-            height: 300px;
+            height: 36vh;
             /* Reduced height on mobile */
             border-radius: 10px;
         }
 
         .search-container {
-            width: 100%;
+            width: 122%;
             /* Full width on mobile */
             padding: 20px;
             border-radius: 10px;
@@ -167,16 +167,16 @@
                         aria-pressed="true" onclick="filterSchools('중학교')">중학교</button>
 
             </dl>
-                <dt>지역명 검색</dt>
-                <dd class="dd-layer">
-                    <span class="input-area">
-                        <input type="text" autocomplete="off" class="search-input" id="search_area_input" value="">
-                        <input type="button" class="search-button" value="검색" onclick="searchArea()">
-                    </span>
-                    <div class="search-layer" style="visibility: hidden;">
+            <dt>지역명 검색</dt>
+            <dd class="dd-layer">
+                <span class="input-area">
+                    <input type="text" autocomplete="off" class="search-input" id="search_area_input" value="">
+                    <input type="button" class="search-button" value="검색" onclick="searchArea()">
+                </span>
+                <div class="search-layer" style="visibility: hidden;">
 
-                    </div>
-                </dd>
+                </div>
+            </dd>
             </dl>
         </div>
         <div id="results" class="results-container"></div>
@@ -348,21 +348,35 @@
 
         ];
 
-        var markers = [];
         var map;
+        var markers;
 
-        kakao.maps.load(function () {
+        function initMapForIOS(lat, lon) {
             var mapContainer = document.getElementById('map');
-            var suwonCenter = new kakao.maps.LatLng(37.263573, 127.028601);
+            var userCenter = new kakao.maps.LatLng(lat, lon);
 
             var options = {
-                center: suwonCenter,
+                center: userCenter,
                 level: 7
             };
 
             map = new kakao.maps.Map(mapContainer, options);
             markers = [];
 
+            // 사용자 위치에 마커 추가
+            var userMarker = new kakao.maps.Marker({
+                position: userCenter,
+                map: map,
+                title: "현재 위치",
+                image: new kakao.maps.MarkerImage(
+                    'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png',
+                    new kakao.maps.Size(64, 69),
+                    { offset: new kakao.maps.Point(27, 69) }
+                )
+            });
+            markers.push(userMarker);
+
+            // 학교 위치에 마커 추가
             for (var i = 0; i < schools.length; i++) {
                 var school = schools[i];
                 var markerPosition = new kakao.maps.LatLng(school.lat, school.lng);
@@ -375,105 +389,88 @@
 
                 markers.push(marker);
             }
-
-            function filterSchools(type) {
-                for (var i = 0; i < markers.length; i++) {
-                    markers[i].setMap(null);
-                }
-
-                for (var i = 0; i < schools.length; i++) {
-                    var school = schools[i];
-                    if (type === "전체" || school.name.includes(type)) {
-                        var markerPosition = new kakao.maps.LatLng(school.lat, school.lng);
-                        var marker = new kakao.maps.Marker({
-                            position: markerPosition,
-                            map: map,
-                            title: school.name
-                        });
-                        markers.push(marker);
-                    }
-                }
-            }
+        }
 
 
-            document.getElementById("school_step1").addEventListener("click", function () {
-                filterSchools('전체');
-            });
 
-            document.getElementById("school_step2").addEventListener("click", function () {
-                filterSchools('유치원');
-            });
 
-            document.getElementById("school_step3").addEventListener("click", function () {
-                filterSchools('초등학교');
-            });
-
-            document.getElementById("school_step4").addEventListener("click", function () {
-                filterSchools('중학교');
-            });
-
-            document.getElementById("school_step5").addEventListener("click", function () {
-                filterSchools('고등학교');
-            });
-
-            document.getElementById("school_step6").addEventListener("click", function () {
-                filterSchools('대학교');
-            });
-
-            document.getElementById("school_step7").addEventListener("click", function () {
-                filterSchools('병원');
-            });
-
-            document.getElementById("school_step8").addEventListener("click", function () {
-                filterSchools('역');
-            });
-
-            document.getElementById("school_step9").addEventListener("click", function () {
-                filterSchools('버스');
-            });
-
-            document.getElementById("school_step10").addEventListener("click", function () {
-                filterSchools('구청');
-            });
-
-            function searchArea() {
-                var searchInput = document.getElementById('search_area_input').value;
-                var resultsContainer = document.getElementById('results');
-                resultsContainer.innerHTML = '';
-
-                for (var i = 0; i < schools.length; i++) {
-                    var school = schools[i];
-                    if (school.name.includes(searchInput)) {
-                        var resultItem = document.createElement('div');
-                        resultItem.textContent = school.name;
-                        resultItem.className = 'result-item';
-                        resultsContainer.appendChild(resultItem);
-
-                        resultItem.addEventListener('click', function () {
-                            var clickedSchoolName = this.textContent;
-                            var clickedSchool = schools.find(function (item) {
-                                return item.name === clickedSchoolName;
-                            });
-                            if (clickedSchool) {
-                                var markerPosition = new kakao.maps.LatLng(clickedSchool.lat, clickedSchool.lng);
-                                map.panTo(markerPosition);
-                            }
-                        });
-                    }
-                }
-
-                if (resultsContainer.children.length === 0) {
-                    var noResultMessage = document.createElement('div');
-                    noResultMessage.textContent = '검색 결과가 없습니다.';
-                    resultsContainer.appendChild(noResultMessage);
-                }
-            }
-
-            document.getElementById('search_area_input').addEventListener('input', searchArea);
-
-            // Initialize by filtering with '전체'
+        document.getElementById("school_step1").addEventListener("click", function () {
             filterSchools('전체');
         });
+
+        document.getElementById("school_step2").addEventListener("click", function () {
+            filterSchools('유치원');
+        });
+
+        document.getElementById("school_step3").addEventListener("click", function () {
+            filterSchools('초등학교');
+        });
+
+        document.getElementById("school_step4").addEventListener("click", function () {
+            filterSchools('중학교');
+        });
+
+        document.getElementById("school_step5").addEventListener("click", function () {
+            filterSchools('고등학교');
+        });
+
+        document.getElementById("school_step6").addEventListener("click", function () {
+            filterSchools('대학교');
+        });
+
+        document.getElementById("school_step7").addEventListener("click", function () {
+            filterSchools('병원');
+        });
+
+        document.getElementById("school_step8").addEventListener("click", function () {
+            filterSchools('역');
+        });
+
+        document.getElementById("school_step9").addEventListener("click", function () {
+            filterSchools('버스');
+        });
+
+        document.getElementById("school_step10").addEventListener("click", function () {
+            filterSchools('구청');
+        });
+
+        function searchArea() {
+            var searchInput = document.getElementById('search_area_input').value;
+            var resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            for (var i = 0; i < schools.length; i++) {
+                var school = schools[i];
+                if (school.name.includes(searchInput)) {
+                    var resultItem = document.createElement('div');
+                    resultItem.textContent = school.name;
+                    resultItem.className = 'result-item';
+                    resultsContainer.appendChild(resultItem);
+
+                    resultItem.addEventListener('click', function () {
+                        var clickedSchoolName = this.textContent;
+                        var clickedSchool = schools.find(function (item) {
+                            return item.name === clickedSchoolName;
+                        });
+                        if (clickedSchool) {
+                            var markerPosition = new kakao.maps.LatLng(clickedSchool.lat, clickedSchool.lng);
+                            map.panTo(markerPosition);
+                        }
+                    });
+                }
+            }
+
+            if (resultsContainer.children.length === 0) {
+                var noResultMessage = document.createElement('div');
+                noResultMessage.textContent = '검색 결과가 없습니다.';
+                resultsContainer.appendChild(noResultMessage);
+            }
+        }
+
+        document.getElementById('search_area_input').addEventListener('input', searchArea);
+
+        // Initialize by filtering with '전체'
+        filterSchools('전체');
 
         var keydownCtrl = 0;
         var keydownShift = 0;

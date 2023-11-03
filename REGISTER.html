@@ -277,4 +277,18 @@
             // Remove any non-numeric characters
             phoneNumber = phoneNumber.replace(/\D/g, '');
             
-            // Restrict further input after a total of
+            // Restrict further input after a total of 11 digits (010과 7자리 숫자)
+            if (phoneNumber.length >= 11) {
+                phoneNumber = phoneNumber.substring(0, 11);
+            }
+            
+            // Add the "010" prefix
+            if (phoneNumber.length >= 3) {
+                phoneNumber = '010' + phoneNumber.substring(3);
+            }
+            
+            inputField.value = phoneNumber;
+        }
+    </script>
+</body>
+</html>
