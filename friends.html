@@ -896,11 +896,6 @@
             <img src="setting.png" alt="설정" onclick="handleImageClick(2)">
         </div>
 
-
-        <div class="additional-image-3">
-            <img src="export.png" alt="공유" onclick="handleImageClick(3)">
-        </div>
-
         <img src="friends.png" alt="친구목록" class="friend-image">
         <div class="friend-text"><a href="https://play-us.netlify.app/friends.html">친구목록</a></div>
 
@@ -912,16 +907,6 @@
 
         <img src="message.png" alt="방문한 매장 의견 남기기" class="message-image">
         <div class="message-text"><a href="https://play-us.netlify.app/nearlocation.html">방문한 매장 읜견 남기기</a></div>
-
-        <img src="weather.png" alt="오늘 날씨 확인하기" class="weather-image">
-        <div class="weather-text"><a href="">오늘 날씨 확인하기</a></div> <!--링크 넣어줘야함-->
-
-        <img src="plan.png" alt="계획짜러 가기" class="plan-image">
-        <div class="plan-text"><a href="">계획짜러 가기</a></div> <!--링크 넣어줘야함-->
-
-        <img src="pay.png" alt="더치페이 계산하기" class="pay-image">
-        <div class="pay-text"><a href="">더치페이 계산하기</a></div> <!--링크 넣어줘야함-->
-
     </div>
     <p class="additional_text" id="greeting">username님 주변에 누가 있을까요?</p>
 
@@ -943,7 +928,7 @@
             const content = document.querySelector('.content');
             sidebar.classList.toggle('sidebar-open');
 
-            const elementsToHide = document.querySelectorAll('.box, .box-2, .box-3, .box-4, .additional_text, .additional_text_1, .additional_text_2, .additional_text_3, .additional_text_4, .new-box, .new-box-1, .new-box-2, .new-box-3');
+            const elementsToHide = document.querySelectorAll('.PLAY_US, .profile-circle, .username-introduce, .box, .box-2, .box-3, .box-4, .additional_text, .additional_text_1, .additional_text_2, .additional_text_3, .additional_text_4, .new-box, .new-box-1, .new-box-2, .new-box-3');
             for (const element of elementsToHide) {
                 if (sidebar.classList.contains('sidebar-open')) {
                     element.style.maxHeight = '0';
