@@ -451,11 +451,11 @@
             font-weight: bold;
             margin-left: -20vw;
         }
-
+       
         .additional_text_1 {
             font-weight: bold;
             font-size: 2vh;
-            margin-top: -60vh;
+            margin-top: -320px;
             position: absolute;
             margin-left: -17vw;
         }
@@ -465,10 +465,11 @@
         .box-container {
             display: flex;
             justify-content: space-between;
-            width: 90%;
+            width: 84%;
             margin-top: 6vw;
             position: absolute;
-            top: 23vw;
+            top: 30vw;
+            margin-left: 5px;
         }
         .box {
             flex: 1;
@@ -503,19 +504,66 @@
             margin-top: 170vw;
             margin-left: -13vw;
         }
+     
+        #search-container {
+            display: flex;
+            align-items: center;
+            margin-top: 380px;
+        }
+        
+        #search-input {
+            width: 235px;
+            height: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: absolute;
+            margin-top: 12vh;
+            margin-left: -159px;
+            text-align: center;
+        }
+        
+        #search-input::placeholder {
+            color: #999;
+        }
+      
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 11px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: absolute;
+            margin-left: 32vw;
+            margin-top: 12vh;
+        }
+        
+        button:hover {
+            background-color: #0056b3; /* 호버 시 배경색 변경 */
+        }
+      
     </style>
 </head>
 
 <body>
-    <p class="PLAY_US"><a href="https://play-us.netlify.app/main.html"></a>Play_Us.</p>
+    <p class="PLAY_US">Play_Us.</p>
     <div class="play_us_button" onclick="toggleSidebar()">
-        <img src="menu.png" alt="Play Us Button">
+        <img src="botton.png" alt="Play Us Button">
     </div>
 
     <p class="additional_text_1">username님 주변에는 무엇이 있을까요?</p>
 
     <div class="box-container">
         <div class="box" id="map"></div>
+    </div>
+
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="주변 지역 검색">
+        <button onclick="searchNearby()">검색</button>
     </div>
 
     <div id="sidebar" class="sidebar">
@@ -547,10 +595,10 @@
         </div>
 
         <img src="friends.png" alt="친구목록" class="friend-image">
-        <div class="friend-text"><a href="https://play-us.netlify.app/friends.html">친구목록</a></div>
+        <div class="friend-text"><a href="http://127.0.0.1:5500/friends.html">친구목록</a></div>
 
         <img src="table.png" alt="일정 관리하기" class="table-image">
-        <div class="table-text"><a href="https://play-us.netlify.app/plan.html">일정 관리하기</a></div> <!--링크 넣어줘야함-->
+        <div class="table-text"><a href="http://127.0.0.1:5500/plan.html">일정 관리하기</a></div> <!--링크 넣어줘야함-->
 
         <img src="location.png" alt="주변 놀거리 찾기" class="location-image">
         <div class="location-text"><a href="">주변 놀거리 찾기</a></div> <!--링크 넣어줘야함-->
@@ -672,7 +720,7 @@
 
             var marker = new naver.maps.Marker(markerOptions);
         }
-
+        
         // Function to show the map (inside your existing script block)
         window.showLocationOnMap = function (latitude, longitude) {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -686,6 +734,65 @@
                 initMapForAndroid(latitude, longitude);
             }
         }
+
+        function searchNearby() {
+            var searchInput = document.getElementById("search-input");
+            var query = searchInput.value; // 검색어 가져오기
+        
+            // 검색 기능 추가 - Naver API를 사용하였음
+            var map = new naver.maps.Map('map');
+            var geocoder = new naver.maps.services.Geocoder();
+        
+            // 검색 결과를 처리하는 콜백 함수
+            var processSearchResults = function (status, response) {
+                if (status === naver.maps.Service.Status.ERROR) {
+                    alert('검색 결과가 없거나 오류가 발생했습니다.');
+                    return;
+                }
+                
+                if (response.v2.meta.totalCount === 0) {
+                    alert('검색 결과가 없습니다.');
+                    return;
+                }
+        
+                var items = response.v2.places;
+                
+                if (items && items.length > 0) {
+                    // 검색 결과를 마커로 표시
+                    var markers = items.map(function (item) {
+                        var marker = new naver.maps.Marker({
+                            position: new naver.maps.LatLng(item.y, item.x),
+                            map: map
+                        });
+        
+                        var infoWindow = new naver.maps.InfoWindow({
+                            content: '<p>' + item.title + '</p>'
+                        });
+        
+                        naver.maps.Event.addListener(marker, 'click', function (e) {
+                            if (infoWindow.getMap()) {
+                                infoWindow.close();
+                            } else {
+                                infoWindow.open(map, marker);
+                            }
+                        });
+        
+                        return marker;
+                    });
+        
+                    // 검색 결과에 따라 지도 확대/이동
+                    if (items.length > 1) {
+                        map.panToBounds(markers);
+                    } else {
+                        map.setCenter(markers[0].getPosition());
+                    }
+                }
+            };
+        
+            // 주소 검색 요청
+            geocoder.addressToCoordinate(query, {query: query}, processSearchResults);
+        }
+        
     </script>
 </body>
 
