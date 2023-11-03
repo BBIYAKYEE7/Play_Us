@@ -444,14 +444,6 @@
 
 
 
-        .username-introduce {
-            position: absolute;
-            font-size: 2.2vh;
-            margin-top: -20vw;
-            font-weight: bold;
-            margin-left: -20vw;
-        }
-
         .additional_text_1 {
             font-weight: bold;
             font-size: 2vh;
@@ -506,70 +498,80 @@
             margin-left: -13vw;
         }
 
-        #search-container {
-            display: flex;
-            align-items: center;
-            margin-top: 380px;
+        .username-pay {
+            font-size: 2.2vh;
+            font-weight: bold;
+            position: absolute;
+            margin-top: 8vh;
+            margin-left: -17vh;
         }
 
-        #search-input {
-            width: 235px;
-            height: 10px;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
+        .event-container {
+            background-color: #f0f0f0;
+            border: 2px solid #007bff;
             border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
             position: absolute;
-            margin-top: 12vh;
-            margin-left: -159px;
+            margin-top: 50vh;
+        }
+
+        #completeEventButton {
+            background-color: #007bff;
+            color: #fff;
+            padding: 6px 100px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 84vh;
+            position: absolute;
+        }
+
+        #completeEventButton:hover {
+            background-color: #0056b3;
+        }
+
+        .custom-alert {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(255, 255, 255);
+            border: 2px solid rgb(51, 51, 51);
+            padding: 20px;
+            border-radius: 5px;
+            z-index: 1000;
+            width: 70%;
             text-align: center;
         }
 
-        #search-input::placeholder {
-            color: #999;
-        }
-
-        button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 11px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            position: absolute;
-            margin-left: 32vw;
-            margin-top: 12vh;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-            /* 호버 시 배경색 변경 */
-        }
-
-        .filter-button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
+        
+        
+        .botton-confirm {
             padding: 10px 20px;
             font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            margin-right: 10px;
+            margin: 5px;
         }
     
-        .filter-button:hover {
-            background-color: #0056b3;
+        .botton-cancel {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
         }
-    
-        .pc-bang-button {
-            background-color: #ff9900; /* 예를 들어 PC방 버튼의 배경색을 변경 */
-        }
-    
-        .norae-bang-button {
-            background-color: #ff6600; /* 예를 들어 노래방 버튼의 배경색을 변경 */
-        }
+       
     </style>
 </head>
 
@@ -579,26 +581,18 @@
         <img src="botton.png" alt="Play Us Button">
     </div>
 
-    <p class="additional_text_1">username님 주변에는 무엇이 있을까요?</p>
-
-    <div class="box-container">
-        <div class="box" id="map"></div>
+    <div class="username-pay">
+        <p id="greeting">username님! 정산해볼까요?</p>
     </div>
 
-    <div id="search-container">
-        <input type="text" id="search-input" placeholder="주변 지역 검색">
-        <button onclick="searchNearby()">검색</button>
+    <div class="event-container">
+        <p id="eventName"></p>
+        <p id="eventLocation"></p>
+        <p id="eventDate"></p>
     </div>
 
-
-    <div id="filter-buttons">
-        <button class="filter-button pc-bang-button" data-category="pc방">pc방</button>
-        <button class="filter-button norae-bang-button" data-category="노래방">노래방</button>
-        <button class="filter-button culture-button" data-category="문화 체험">문화 체험</button>
-        <button class="filter-button food-button" data-category="먹거리">먹거리</button>
-        <button class="filter-button sightseeing-button" data-category="볼거리">볼거리</button>
-    </div>
-
+    <button id="completeEventButton">약속 완료하기</button>
+    <div id="customAlert" class="custom-alert"></div>
 
     <div id="sidebar" class="sidebar">
         <p class="additional_text_5" id="sidebartext">Play_Us.</p>
@@ -652,20 +646,18 @@
     </div>
 
 
-    <script type="text/javascript"
-        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4am77jshp6"></script>
+
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
 
         if (username) {
             const greeting = document.getElementById('greeting');
-            greeting.textContent = `${username}님 주변에는 무엇이 있을까요?`;
+            greeting.textContent = `${username}님! 정산해볼까요?`;
 
             const usernameGreeting = document.getElementById('username-greeting');
             usernameGreeting.textContent = `${username}님 (나)`;
         }
-
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const content = document.querySelector('.content');
@@ -722,146 +714,94 @@
             reader.readAsDataURL(file);
         }
 
-
-        function initMapForIOS(latitude, longitude) {
-            var mapOptions = {
-                center: new naver.maps.LatLng(latitude, longitude),
-                zoom: 13
-            };
-
-            var map = new naver.maps.Map('map', mapOptions);
-
-            var markerOptions = {
-                position: new naver.maps.LatLng(latitude, longitude),
-                map: map
-            };
-
-            var marker = new naver.maps.Marker(markerOptions);
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
 
-        function initMapForAndroid(latitude, longitude) {
-            var mapOptions = {
-                center: new naver.maps.LatLng(latitude, longitude),
-                zoom: 13
-            };
+        // URL 매개변수에서 이벤트 세부 정보를 가져와 표시
+        const eventName = getParameterByName('eventName');
+        const eventLocation = getParameterByName('eventLocation');
+        const eventDate = getParameterByName('eventDate');
 
-            var map = new naver.maps.Map('map', mapOptions);
+        // Get the event container
+        const eventContainer = document.querySelector('.event-container');
 
-            var markerOptions = {
-                position: new naver.maps.LatLng(latitude, longitude),
-                map: map
-            };
+        // Set the event details within the container
+        eventContainer.innerHTML = `
+            <p>${eventName}</p>
+            <p>${eventLocation}</p>
+            <p>${eventDate}</p>
+        `;
+        function createEventAlert(message) {
+            var alertContainer = document.createElement('div');
+            alertContainer.className = 'custom-alert';
+            alertContainer.textContent = message;
 
-            var marker = new naver.maps.Marker(markerOptions);
+            document.body.appendChild(alertContainer);
+
+            setTimeout(function () {
+                alertContainer.style.opacity = '0';
+                setTimeout(function () {
+                    alertContainer.remove();
+                }, 1000);
+            }, 3000);
         }
 
-        // Function to show the map (inside your existing script block)
-        window.showLocationOnMap = function (latitude, longitude) {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-            // iOS
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                initMapForIOS(latitude, longitude);
-            }
-            // Android
-            else if (/android/i.test(userAgent)) {
-                initMapForAndroid(latitude, longitude);
-            }
-        }
-
-        function searchNearby() {
-            var searchInput = document.getElementById("search-input");
-            var query = searchInput.value; // 검색어 가져오기
-        
-            // 검색 기능 추가 - Naver API를 사용하였음
-            var map = new naver.maps.Map('map');
-            var geocoder = new naver.maps.services.Geocoder();
-        
-            // 검색 결과를 처리하는 콜백 함수
-            var processSearchResults = function (status, response) {
-                if (status === naver.maps.Service.Status.ERROR) {
-                    alert('검색 결과가 없거나 오류가 발생했습니다.');
-                    return;
-                }
-        
-                if (response.v2.meta.totalCount === 0) {
-                    alert('검색 결과가 없습니다.');
-                    return;
-                }
-        
-                var items = response.v2.places;
-        
-                if (items && items.length > 0) {
-                    // 검색 결과를 마커로 표시
-                    var markers = items.map(function (item) {
-                        var marker = new naver.maps.Marker({
-                            position: new naver.maps.LatLng(item.y, item.x),
-                            map: map
-                        });
-        
-                        var infoWindow = new naver.maps.InfoWindow({
-                            content: '<p>' + item.title + '</p>'
-                        });
-        
-                        naver.maps.Event.addListener(marker, 'click', function (e) {
-                            if (infoWindow.getMap()) {
-                                infoWindow.close();
-                            } else {
-                                infoWindow.open(map, marker);
-                            }
-                        });
-        
-                        return marker;
-                    });
-        
-                    // 검색 결과에 따라 지도 확대/이동
-                    if (items.length > 1) {
-                        map.panToBounds(markers);
-                    } else {
-                        map.setCenter(markers[0].getPosition());
-                    }
-                }
-            };
-        
-            // 주소 검색 요청
-            geocoder.addressToCoordinate(query, { query: query }, processSearchResults);
-        }
-
-
-        var locations = [
-            { name: "장소 1", latitude: 37.1234, longitude: 127.5678, category: "pc방" },
-            { name: "장소 2", latitude: 37.2345, longitude: 127.6789, category: "노래방" },
-            { name: "장소 3", latitude: 37.3456, longitude: 127.7890, category: "문화 체험" },
-            { name: "장소 4", latitude: 37.4567, longitude: 127.8901, category: "먹거리" },
-            { name: "장소 5", latitude: 37.5678, longitude: 127.9012, category: "볼거리" },
-            // 필요한 만큼 더 많은 장소를 추가합니다.
-        ];
-
-        // 필터 버튼 클릭 시 호출되는 함수
-        function filterPlaces(category) {
-            // 모든 마커 제거
-            removeMarkers();
-
-            // 해당 카테고리에 속하는 장소만 필터링
-            var filteredLocations = locations.filter(function (location) {
-                return location.category === category;
-            });
-
-            // 필터링된 장소에 대한 마커 생성 및 표시
-            createMarkers(map, filteredLocations);
-        }
-
-        // 모든 필터 버튼에 이벤트 리스너 추가
-        var filterButtons = document.querySelectorAll(".filter-button");
-        filterButtons.forEach(function (button) {
-            button.addEventListener("click", function () {
-                var category = button.getAttribute("data-category");
-                filterPlaces(category);
-            });
+        completeEventButton.addEventListener('click', function () {
+            const customAlert = document.getElementById('customAlert');
+            customAlert.style.display = 'block';
+            createEventAlert('친구와 돈을 사용하셨나요?', '네', '아니오');
         });
-
-
+        
+        function createEventAlert(message, button1Text, button2Text) {
+            const customAlert = document.getElementById('customAlert');
+            customAlert.style.display = 'block';
+        
+            const alertMessage = document.createElement('p');
+            alertMessage.textContent = message;
+        
+            const buttonContainer = document.createElement('div');
+        
+            if (button1Text) {
+                const button1 = document.createElement('button');
+                button1.textContent = button1Text;
+                button1.className = 'botton-confirm'; // "네" 버튼에 "botton-confirm" 클래스 적용
+                button1.addEventListener('click', function () {
+                    customAlert.style.display = 'none';
+                    if (button1Text === '네') {
+                        // 사용자가 "네"를 선택한 경우의 처리를 여기에 추가
+                        // 예시: 정산 페이지로 이동
+                        window.location.href = 'http://127.0.0.1:5500/finalpay.html'; // 이동할 페이지 URL로 변경
+                    }
+                });
+                buttonContainer.appendChild(button1);
+            }
+            if (button2Text) {
+                const button2 = document.createElement('button');
+                button2.textContent = button2Text;
+                button2.className = 'botton-cancel'; // "아니오" 버튼에 "botton-cancel" 클래스 적용
+                button2.addEventListener('click', function () {
+                    customAlert.style.display = 'none';
+                    // 아니오 버튼을 눌렀을 때 처리
+                    const eventContainer = document.querySelector('.event-container');
+                    eventContainer.innerHTML = '<p>약속이 모두 처리되었습니다!</p>';
+                    setTimeout(function () {
+                        // 일정 시간 후 원하는 페이지로 이동 (예: 3초 후)
+                        window.location.href = 'http://127.0.0.1:5500/friends.html'; // 이동할 페이지 URL로 변경
+                    }, 3000); // 3초 지연
+                });
+                buttonContainer.appendChild(button2);
+            }
+            customAlert.innerHTML = '';
+            customAlert.appendChild(alertMessage);
+            customAlert.appendChild(buttonContainer);
+        }
     </script>
 </body>
-
 </html>
