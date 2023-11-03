@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Product</title>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
-        @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
         body {
             margin: 0;
             display: flex;
@@ -97,7 +98,7 @@
             opacity: 1;
             transition: max-height 0.5s, opacity 0.5s;
             transform: translateY(0);
-            font-family: Pretendard;
+
             display: block;
 
         }
@@ -294,12 +295,6 @@
             transition: transform 0.3s;
         }
 
-        .sidebartext{
-            transform: scale(1.1);
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
         .friend-text:hover {
             transform: scale(1.1);
         }
@@ -447,25 +442,7 @@
             transform: scale(1.1);
         }
 
-        .profile-circle {
-            position: absolute;
-            width: 15vw;
-            height: 15vw;
-            background-color: #f0f0f0;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: -10vh;
-            cursor: pointer;
-            margin-left: -77vw;
-        }
 
-        .profile-circle img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 50%;
-        }
 
         .username-introduce {
             position: absolute;
@@ -477,32 +454,36 @@
 
         .additional_text_1 {
             font-weight: bold;
-            font-size: 2.2vh;
-            margin-top: 8vh;
+            font-size: 2vh;
+            margin-top: -60vh;
             position: absolute;
-            margin-left: -37vw;
+            margin-left: -17vw;
         }
+
+        /* 기존 CSS 코드는 그대로 두고 아래의 내용만 추가합니다. */
 
         .box-container {
             display: flex;
             justify-content: space-between;
             width: 90%;
             margin-top: 6vw;
-            position: relative;
+            position: absolute;
             top: 23vw;
         }
-
         .box {
             flex: 1;
-            width: calc(25% - 10px);
-            height: 100px;
+            width: 110%;
+            height: 60vh;
             background-color: #fff;
             text-align: center;
             border: 1px solid #ccc;
             border-radius: 5px;
             margin-bottom: -12px;
-            margin-right: 5px;
+            /* margin-right: 9px; */
+            position: absolute;
+            margin-left: -15px;
         }
+
 
         .additional_text {
             position: absolute;
@@ -522,302 +503,23 @@
             margin-top: 170vw;
             margin-left: -13vw;
         }
-
-        .new-box {
-            flex: 1;
-            width: 88%;
-            height: 11vw;
-            background-color: #fff;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: -12px;
-            margin-right: 5px;
-            position: absolute;
-            margin-top: 189vw;
-        }
-
-        .new-box-1 {
-            flex: 1;
-            width: 88%;
-            height: 11vw;
-            background-color: #fff;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: -12px;
-            margin-right: 5px;
-            position: absolute;
-            margin-top: 221vw;
-        }
-
-        .additional_text_3 {
-            position: absolute;
-            font-weight: bold;
-            font-size: 2.2vh;
-            margin-top: 258vw;
-            margin-left: -27vw;
-        }
-
-        .new-box-2 {
-            flex: 1;
-            width: 88%;
-            height: 11vw;
-            background-color: #fff;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: -12px;
-            margin-right: 5px;
-            position: absolute;
-            margin-top: 274vw;
-        }
-
-        .new-box-3 {
-            flex: 1;
-            width: 88%;
-            height: 11vw;
-            background-color: #fff;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: -12px;
-            margin-right: 5px;
-            position: absolute;
-            margin-top: 305vw;
-        }
-
-        .box button {
-            position: relative;
-            margin-top: 21vw;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-            font-size: 3.5vw;
-        }
-
-        .new-box button {
-            position: relative;
-            margin-top: 23vw;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-            font-size: 3.5vw;
-            margin-left: 60vw;
-            margin-top: 2vw;
-        }
-
-        .new-box-1 button {
-            position: relative;
-            margin-top: 23vw;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-            font-size: 3.5vw;
-            margin-left: 63vw;
-            margin-top: 2vw;
-        }
-
-        .new-box-2 button {
-            position: relative;
-            margin-top: 23vw;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-            font-size: 3.5vw;
-            margin-left: 63vw;
-            margin-top: 2vw;
-        }
-
-        .new-box-3 button {
-            position: relative;
-            margin-top: 23vw;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-            font-size: 3.5vw;
-            margin-left: 63vw;
-            margin-top: 2vw;
-        }
-
-        #notification {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            padding: 20px;
-            border: 2px solid #333;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-
-        .confirm-dialog {
-            display: none;
-            position: fixed;
-            top: 55%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            padding: 30px;
-            border: 2px solid #333;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            text-align: center;
-            width: 70%;
-            border-radius: 5px;
-        }
-
-        /* 약속 이름 입력란 스타일 */
-        .name-input {
-            display: none;
-            position: fixed;
-            top: 55%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            padding: 30px;
-            border: 2px solid #333;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            text-align: center;
-            width: 70%;
-        }
-
-
-        .button-complete {
-            padding: 10px 20px;
-            font-size: 14px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 5px;
-        }
-
-        .button-yes {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 5px;
-        }
-
-        .button-cancel {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #DE0E0E;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 5px;
-        }
-
-        .button-cancel:hover {
-            background-color: #e90b0b9a;
-        }
-
-        .button-yes:hover,
-        .button-complete:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 
 <body>
-    <p class="PLAY_US">Play_Us.</p>
+    <p class="PLAY_US"><a href="https://play-us.netlify.app/main.html"></a>Play_Us.</p>
     <div class="play_us_button" onclick="toggleSidebar()">
         <img src="menu.png" alt="Play Us Button">
     </div>
 
-    <div class="profile-circle" onclick="openImageDialog()">
-        <img id="profile-image" src="default_profile_image.jpg" alt="Profile Image">
-    </div>
-
-    <div class="username-introduce">
-        <p id="username-introducing">username님 (나)</p>
-    </div>
-
-    <p class="additional_text_1">친구들과 약속 잡아볼까요?</p>
-
+    <p class="additional_text_1">username님 주변에는 무엇이 있을까요?</p>
 
     <div class="box-container">
-        <div class="box">
-            <button onclick="handleBoxButtonClick(1)">약속잡기</button>
-        </div>
-        <div class="box">
-
-            <button onclick="handleBoxButtonClick(2)">약속잡기</button>
-        </div>
-        <div class="box">
-
-            <button onclick="handleBoxButtonClick(3)">약속잡기</button>
-        </div>
-        <div class="box">
-
-            <button onclick="handleBoxButtonClick(4)">약속잡기</button>
-        </div>
+        <div class="box" id="map"></div>
     </div>
-
-    <div class="box-container">
-        <div class="box">
-
-            <button onclick="handleBoxButtonClick(5)">약속잡기</button>
-        </div>
-        <div class="box">
-
-            <button onclick="handleBoxButtonClick(6)">약속잡기</button>
-        </div>
-        <div class="box">
-
-            <button onclick="handleBoxButtonClick(7)">약속잡기</button>
-        </div>
-        <div class="box">
-
-            <button onclick="handleBoxButtonClick(8)">약속잡기</button>
-        </div>
-    </div>
-
-    <p class="additional_text_2">Play_Us를 사용하고 있는 친구들이에요!</p>
-
-
-    <div class="new-box">
-        <button onclick="handleBoxButtonClick(9)">추가하기</button>
-    </div>
-    <div class="new-box-1">
-        <button onclick="handleBoxButtonClick(10)">추가하기</button>
-    </div>
-    <p class="additional_text_3">Play_Us에 친구를 초대해볼까요?</p>
-
-    <div class="new-box-2">
-        <button onclick="handleBoxButtonClick(11)">초대하기</button>
-    </div>
-    <div class="new-box-3">
-        <button onclick="handleBoxButtonClick(12)">초대하기</button>
-    </div>
-
-    <div id="confirmDialog" class="confirm-dialog">
-        <p>약속을 잡으시겠습니까?</p>
-        <button class="button-yes" onclick="showInputField()">예</button>
-        <button class="button-cancel" onclick="closeDialog()">취소</button>
-    </div>
-
-    <div id="nameInput" class="name-input">
-        <form onsubmit="return saveEventNameAndNavigate(event)">
-            <input type="text" id="eventNameInput" placeholder="약속 이름을 입력하세요">
-            <button type="submit" class="button-complete">완료</button>
-        </form>
-    </div>
-
 
     <div id="sidebar" class="sidebar">
-        <p class="additional_text_5" id="sidebartext"><a href="https://play-us.netlify.app/main.html">Play_Us.</p>
+        <p class="additional_text_5" id="sidebartext">Play_Us.</p>
 
         <div class="profile-button">
             <input type="file" id="image-upload" accept="image/*" onchange="updateProfileImage(this)">
@@ -851,7 +553,7 @@
         <div class="table-text"><a href="https://play-us.netlify.app/plan.html">일정 관리하기</a></div> <!--링크 넣어줘야함-->
 
         <img src="location.png" alt="주변 놀거리 찾기" class="location-image">
-        <div class="location-text"><a href="https://play-us.netlify.app/nearlocation.html">주변 놀거리 찾기</a></div> <!--링크 넣어줘야함-->
+        <div class="location-text"><a href="">주변 놀거리 찾기</a></div> <!--링크 넣어줘야함-->
 
         <img src="message.png" alt="방문한 매장 의견 남기기" class="message-image">
         <div class="message-text"><a href="">방문한 매장 읜견 남기기</a></div> <!--링크 넣어줘야함-->
@@ -866,32 +568,26 @@
         <div class="pay-text"><a href="">더치페이 계산하기</a></div> <!--링크 넣어줘야함-->
 
     </div>
-    <p class="additional_text" id="greeting">username님 주변에 누가 있을까요?</p>
 
 
+    <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4am77jshp6"></script>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
-        if (username) {
 
+        if (username) {
             const greeting = document.getElementById('greeting');
-            greeting.textContent = `${username} 님 오늘도 준비되셨나요?`;
+            greeting.textContent = `${username}님 주변에는 무엇이 있을까요?`;
 
             const usernameGreeting = document.getElementById('username-greeting');
             usernameGreeting.textContent = `${username}님 (나)`;
-
-            const usernameIntroducing = document.getElementById('username-introducing');
-            usernameGreeting.textContent = `${username}님 주변에 누가 있을까요?`;
         }
-
-
 
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const content = document.querySelector('.content');
-
             sidebar.classList.toggle('sidebar-open');
-
 
             const elementsToHide = document.querySelectorAll('.box, .box-2, .box-3, .box-4, .additional_text, .additional_text_1, .additional_text_2, .additional_text_3, .additional_text_4, .new-box, .new-box-1, .new-box-2, .new-box-3');
             for (const element of elementsToHide) {
@@ -906,13 +602,11 @@
                 }
             }
 
-
             if (sidebar.classList.contains('sidebar-open')) {
                 content.style.opacity = 0;
             } else {
                 content.style.opacity = 1;
             }
-
 
             setTimeout(function () {
                 for (const element of elementsToHide) {
@@ -925,67 +619,71 @@
             }, 1000); // 지연 시간은 애니메이션 지속 시간과 동일하게 설정 (0.5초 = 500 밀리초)
         }
 
-        function handleBoxButtonClick() {
-            const confirmDialog = document.getElementById('confirmDialog');
-            confirmDialog.style.display = 'block';
+
+
+        function openImageDialog() {
+            // 프로필 이미지 업로드 다이얼로그 열기
+            var imageUpload = document.getElementById("image-upload");
+            imageUpload.click();
         }
 
-        // 예 버튼 클릭 시 약속 이름 입력란 표시
-        function showInputField() {
-            const confirmDialog = document.getElementById('confirmDialog');
-            const nameInput = document.getElementById('nameInput');
+        function updateProfileImage(input) {
+            // 이미지 업로드 후, 업데이트된 이미지를 프로필 이미지로 표시
+            var profileImage = document.getElementById("profile-image");
+            var file = input.files[0];
+            var reader = new FileReader();
 
-            confirmDialog.style.display = 'none';
-            nameInput.style.display = 'block';
-        }
+            reader.onload = function (e) {
+                profileImage.src = e.target.result;
+            };
 
-        // 약속 이름 입력 후 완료 버튼 클릭 시 약속 이름 저장
-        function saveEventName() {
-            const eventNameInput = document.getElementById('eventNameInput');
-            const eventName = eventNameInput.value;
-
-            // 여기에서 eventName을 저장하거나 다음 페이지로 전달하는 로직을 추가
-
-            // 약속 이름 입력란 숨기고 초기화
-            const nameInput = document.getElementById('nameInput');
-            nameInput.style.display = 'none';
-            eventNameInput.value = '';
-        }
-
-        // 취소 버튼 클릭 시 알림창 닫기
-        function closeDialog() {
-            const confirmDialog = document.getElementById('confirmDialog');
-            confirmDialog.style.display = 'none';
+            reader.readAsDataURL(file);
         }
 
 
-        function saveEventNameAndNavigate(event) {
-            event.preventDefault();
-            const eventNameInput = document.getElementById('eventNameInput');
-            const eventName = eventNameInput.value;
+        function initMapForIOS(latitude, longitude) {
+            var mapOptions = {
+                center: new naver.maps.LatLng(latitude, longitude),
+                zoom: 13
+            };
 
-            // 현재 날짜를 가져옵니다.
-            const currentDate = new Date();
+            var map = new naver.maps.Map('map', mapOptions);
 
-            // 이벤트 이름과 날짜를 로컬 스토리지에 저장합니다.
-            localStorage.setItem('eventName', eventName);
-            // 날짜를 'YYYY.MM.DD' 형식의 문자열로 저장
-            localStorage.setItem('eventDate', currentDate.toLocaleDateString('ko-KR'));
+            var markerOptions = {
+                position: new naver.maps.LatLng(latitude, longitude),
+                map: map
+            };
 
-
-            // 다음 페이지로 이동합니다.
-            window.location.href = 'https://play-us.netlify.app/plan.html'; // 실제 다음 페이지 URL로 대체해야 합니다.
-
-            return false;
+            var marker = new naver.maps.Marker(markerOptions);
         }
 
-        // 다음 페이지에서 약속 개수 계산
-        function calculateEventCount() {
-            const eventNameCount = localStorage.getItem('eventName');
+        function initMapForAndroid(latitude, longitude) {
+            var mapOptions = {
+                center: new naver.maps.LatLng(latitude, longitude),
+                zoom: 13
+            };
 
-            if (eventNameCount) {
-                const eventCountText = `username님, ${eventNameCount.split(',').length}건의 약속이 있어요.`;
-                // 이 텍스트를 다음 페이지의 해당 요소에 넣어줘야 합니다.
+            var map = new naver.maps.Map('map', mapOptions);
+
+            var markerOptions = {
+                position: new naver.maps.LatLng(latitude, longitude),
+                map: map
+            };
+
+            var marker = new naver.maps.Marker(markerOptions);
+        }
+
+        // Function to show the map (inside your existing script block)
+        window.showLocationOnMap = function (latitude, longitude) {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // iOS
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                initMapForIOS(latitude, longitude);
+            }
+            // Android
+            else if (/android/i.test(userAgent)) {
+                initMapForAndroid(latitude, longitude);
             }
         }
     </script>
